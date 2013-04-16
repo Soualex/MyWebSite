@@ -1,0 +1,83 @@
+/* ----------------------------------- */
+/* Code CSS du site Les Finals History */
+/*       Code créé par Soualex         */
+/* ----------------------------------- */
+
+/* Font-Face */
+@font-face { font-family: 'Open Sans'; font-style: normal; font-weight: 400; src: local('Open Sans'), local('OpenSans-Regular'), url('police/opensans-regular.woff') format('woff'); }
+@font-face { font-family: 'Open Sans'; font-style: normal; font-weight: 300; src: local('Open Sans Light'), local('OpenSans-Light'), url('police/opensans-light.woff') format('woff'); }
+@font-face { font-family: 'Signika'; font-style: normal; font-weight: 400; src: local('Signika'), local('Signika-Regular'), url('police/signika-regular.woff') format('woff'); }
+@font-face { font-family: 'Signika'; font-style: normal; font-weight: 300; src: local('Signika Light'), local('Signika-Light'), url('police/signika-light.woff') format('woff'); }
+@font-face { font-family: 'Bebas Neue'; font-style: normal; font-weight: normal; src: local('Bebas Neue'), local('BebasNeue'), url('police/bebasneue.woff') format('woff'); }
+
+/* Core */
+html{ background: url("image/background.jpg") fixed no-repeat top; font-family: "Trebuchet MS", "Arial Black", Arial, Verdana, sans-serif; }
+#core{ background: url("image/body.png") top; width: 925px; position: left; vertical-align: top; margin-left: 525px; border-radius: 10px; }
+
+/* Navigation */
+#nav { height: 147px; background: url('image/navbar-bg.png'); box-shadow: 0 -4px 5px #709EBE; text-align: center; }
+#nav ul { padding-right: 50px; list-style-type: none; }
+#nav li { display: inline-block;  margin-right: 20px; padding-top: 30px; font-family: 'Bebas Neue', Impact, sans-serif; font-size: 28px; text-shadow: 0 2px 0 #929292, 0 0 4px #472F19; }
+a { text-decoration: none; color: #B8860B; }
+a:visited { color: #B8860B; }
+a:hover { color: green; }
+
+
+/* Page */
+.page { width: 635px; position: relative; margin: 10px;  text-align: justify; display: inline-block; }
+.page h2 { font-family: Signika; border-bottom: 1px solid #C0C0C0; }
+.right { vertical-align: top; display: inline-block; text-align: center; margin: 15px; width: 225px; }
+ 
+    /* Register */
+    .page label { display: block; width: 200px; float: left; }
+    
+    /* ChatBox */
+    .chatbox { margin: 10px; padding: 10px; }
+    .chatbox-form { border-bottom: 1px solid #C0C0C0; }
+    .chatbox-form  label { display: block; width: 75px; float: left; }
+    .chatbox-info { margin-right: 5px; width: 170px; display: inline-block; position: relative; }
+    .chatbox-message { margin-left: 5px; width: 400px; display: inline-block; vertical-align: top;  }
+    .chatbox-bot { border: 1px solid #C0C0C0; border-radius: 10px; background-color: #C0C0C0; padding: 5px; word-wrap: break-word; }
+
+
+/* Box */
+.box { display: inline-block; height: 337px; padding-bottom: 10px; background: url('image/box.png') no-repeat; }
+.box-header { height: 65px; }
+.box-name { position: absolute; margin-top: 15px; margin-left: 15px; font-family: Signika, sans-serif; font-weight: normal; color: #FFF; }
+.box-body fieldset { border: none; }
+.box-body input[type=text], .box-body input[type=password] { margin-top: 30px; }
+.box-body input[type=submit] { margin-top: 10px; margin-left: 250px; }
+.box-body { margin-right: 50px; float: left; display: block; margin-bottom: -8px; font-family: Signika, sans-serif; font-weight: 300; font-size: 20px; color: #D3D3D3; }
+.box-help { margin-right: 50px; float: left; display: block; }
+.box-help h1 { margin-bottom: -8px; font-family: Signika, sans-serif; font-weight: 300; font-size: 20px; color: #D3D3D3; }
+.box-help h2 { font-family: Signika, sans-serif; font-weight: 100; font-size: 14px; color: #929292; }
+.box-footer { height: 56px; }
+.box-footer a { position: absolute; margin-top: 10px; margin-left: 277px; font-family: 'Open Sans', sans-serif; font-size: 12px; text-decoration: none; color: #929292; }
+
+/* Buttons */
+.btn { width: 145px; height: 38px; font-family: 'Bebas Neue', sans-serif; font-size: 20px; -moz-border-radius: 5px; -webkit-border-radius: 5px; border-radius: 5px; border: 0; background: #D3D3D3 repeat; text-align: center; }
+.btn-green { background: #9DC167; background: -moz-linear-gradient(top, #9DC167 0%, #84B647 100%); background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #9DC167), color-stop(100%, #84B647)); background: -webkit-linear-gradient(top, #9DC167 0%, #84B647 100%); background: -o-linear-gradient(top, #9DC167 0%, #84B647 100%); background: -ms-linear-gradient(top, #9DC167 0%, #84B647 100%); background: linear-gradient(to bottom, #9DC167 0%, #84B647 100%); box-shadow: 0 3px 0 #6D9B39; color: #43641E; text-transform: uppercase; }
+
+/* Other */
+.clear { clear: both; }
+.icon{ vertical-align: middle; margin-right: 8px; }
+
+/* Login */
+.login { padding: 5px; margin-bottom: 10px; -webkit-border-radius: 5px/6px; -moz-border-radius: 5px/6px; border-radius: 5px/6px; -webkit-box-shadow: inset 0 0 13px rgba(149, 149, 149, 0.75); -moz-box-shadow: inset 0 0 13px rgba(149, 149, 149, 0.75); box-shadow: inset 0 0 13px rgba(149, 149, 149, 0.75); background-color: #E2E2E2; border: solid 2px #E2E2E2; }
+.login-name { text-align: justify; position: top; font-family: Signika, sans-serif; font-weight: normal; color: #FFFFFF; }
+.login-pseudo { margin-top: 35px; }
+.login fieldset { border: none; }
+.login input[type=text], .login input[type=password] { margin-top: 10px; text-align: center; }
+.login input[type=submit] { margin-top: 15px; text-align: center; }
+.login h1 { margin-bottom: -8px; font-family: Signika, sans-serif; font-weight: 300; font-size: 18px; color: #929292; }
+.login h2 { text-transform: uppercase; }  
+.login-footer{ height: 56px; }
+.login-footer a { position: top; font-family: 'Open Sans', sans-serif; font-size: 12px; text-decoration: none;}
+
+/* footer */
+.footer { margin: 10px; text-align: center; border-top: 1px solid #BDB76B; color: #228B22; font-family: Signika; }
+
+
+table, td { border: 1px solid black; }     
+table { margin:auto; text-align: center; border-collapse: collapse; }    
+td { padding: 3px;}
