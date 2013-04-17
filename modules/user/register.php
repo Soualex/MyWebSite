@@ -1,49 +1,91 @@
 <?php
-if ($session_id != 0)
+
+if ($user_id != 0)
 {
     erreur('', ALREADY_REGISTRED);
 }
 else
 {
-    $db = DBFactory::getMysqlConnexionWithPDO();
-    $register = new Register($db);
+    //On inclut le modèle
+    include MODELE_DIR.'register.php';
 
-    if (isset($_POST['reg_pseudo']))
+    
+    function checkPseudo($pseudo)
     {
-        $register->checkPseudo(Security::DB($_POST['reg_pseudo']));
-        $register->checkPassword(Security::DB($_POST['password']), Security::DB($_POST['confirm']));
-        $register->checkMail(Security::DB($_POST['email']));
+        $query = $this->getData($pseudo, self::SEARCHDATA_PSEUDO);
+        $pseudo_free = ($query->fetchColumn()==0)?1:0;
+        $query->CloseCursor();
         
-        if ($register->err_pseudo == NULL && $register->err_pass == NULL && $register->err_confirm_pass == NULL && $register->err_email == NULL)
+        if (empty($pseudo))
         {
-            $register->newUser();
-            header('Location: index.php');
+            $this->err_pseudo = 'Champ vide';
+        }
+        else if(!$pseudo_free)
+        {
+            $this->err_pseudo = 'Pseudo déjà utilisé';
+        }  
+        else if (strlen($pseudo) < 3)
+        {
+            $this->err_pseudo = 'Pseudo trop court';
+        }
+        else if (strlen($pseudo) > 15)
+        {
+            $this->err_pseudo = 'Pseudo trop long';
+        }
+        else
+        {
+            $this->pseudo = $pseudo;
         }
     }
-    ?>
-
-    <form method="post" action="index.php?page=register" enctype="multipart/form-data">
-        <p><strong><a href="./index.php"><img src="style/image/home.png" class="icon" /></a>: Inscription</strong></p>
-        <h2><img src="style/image/emerald.png" class="icon" />Inscription</h2>
+    
+    function checkPassword($pass, $confirm_pass)
+    {
+        if (empty($pass) || empty($confirm_pass))
+        {
+            $this->err_pass = 'Champ vide';
+            $this->err_confirm_pass = 'Champ vide';
+        }
+        else if (empty($confirm_pass))
+        {
+            $this->err_confirm_pass = 'Champ vide';
+        }
+        else if ($pass != $confirm_pass)
+        {
+            $this->err_confirm_pass = 'Mots de passe différents';
+        }
+        else
+        {
+            $this->password = md5($pass);
+        }
+    }
+    
+    function checkMail($mail)
+    {
+        $query = $this->getData($mail, self::SEARCHDATA_EMAIL);
+        $mail_free = ($query->fetchColumn()==0)?1:0;
+        $query->CloseCursor();
         
-        <fieldset><legend>Identifiants</legend>
-            <label for="reg_pseudo">Pseudo :</label>  <input name="reg_pseudo" type="text" id="reg_pseudo" required autofocus />
-            <?php if (isset($register->err_pseudo)) echo '<img src="style/image/alert.png" class="icon" title="'.$register->err_pseudo.'" />'; ?><br />
-            
-            <label for="password">Mot de Passe :</label><input type="password" name="password" id="password" required />
-            <?php if (isset($register->err_pass)) echo '<img src="style/image/alert.png" class="icon" title="'.$register->err_pass.'" />'; ?><br />
-            
-            <label for="confirm">Confirmation :</label><input type="password" name="confirm" id="confirm" required />
-            <?php if (isset($register->err_confirm_pass)) echo '<img src="style/image/alert.png" class="icon" title="'.$register->err_confirm_pass.'" />'; ?><br />
-        </fieldset>
-        
-        <fieldset><legend>Contacts</legend>
-            <label for="email">Adresse E-Mail :</label><input type="text" name="email" id="email" required />
-            <?php if (isset($register->err_email)) echo '<img src="style/image/alert.png" class="icon" title="'.$register->err_email.'" />'; ?><br />
-        </fieldset>
-        
-        <p><center><input type="submit" value="S'inscrire" / class="btn btn-green"></center></p>
-    </form>
-<?php 
+        if (empty($mail))
+        {
+            $this->err_email = 'Champ vide';
+        }
+        else if(!$mail_free)
+        {
+            $this->err_email = 'Adresse email déjà utilisé';
+        }
+        else if (!preg_match("#^[a-zA-Z0-9._-]+@[a-zA-Z0-9._-]{2,}\.[a-z]{2,4}$#", $mail) || empty($mail))
+        {
+            $this->err_email = 'Format incorrecte';
+        }
+        else
+        {
+            $this->email = $mail;
+        }
+    }
+     
+     
+    //On inclut la vue
+    include VUE_DIR.'register.php';
 } 
+
 ?>
