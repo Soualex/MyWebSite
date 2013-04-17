@@ -11,83 +11,84 @@ else
     
     if (isset($_POST['reg_pseudo']))
     {
-        $pseudo = Security::input($_POST['reg_pseudo']);
-        $password = Security::input($_POST['password']);
-        $confirm_password = Security::input($_POST['confirm']);
-        $email = Security::input($_POST['email']);
-        $errors = array();
-    }
-    
-    function checkPseudo($pseudo)
-    {
-        $query = $this->getData($pseudo, self::SEARCHDATA_PSEUDO);
+        // Définition des variables
+        $errors[] = NULL;
+        
+        
+        // Vérification du pseudo
+        $query = getData($_POST['reg_pseudo'], 'pseudo');
         $pseudo_free = ($query->fetchColumn()==0)?1:0;
         $query->CloseCursor();
         
-        if (empty($pseudo))
+        if (empty($_POST['reg_pseudo']))
         {
-            $this->err_pseudo = 'Champ vide';
+            $errors['pseudo'] = EMPTY_FIELD;
         }
         else if(!$pseudo_free)
         {
-            $this->err_pseudo = 'Pseudo déjà utilisé';
+            $errors['pseudo'] = 'Pseudo déjà utilisé';
         }  
-        else if (strlen($pseudo) < 3)
+        else if (strlen($_POST['reg_pseudo']) < 3)
         {
-            $this->err_pseudo = 'Pseudo trop court';
+            $errors['pseudo'] = 'Pseudo trop court';
         }
-        else if (strlen($pseudo) > 15)
+        else if (strlen($_POST['reg_pseudo']) > 15)
         {
-            $this->err_pseudo = 'Pseudo trop long';
-        }
-        else
-        {
-            $this->pseudo = $pseudo;
-        }
-    }
-    
-    function checkPassword($pass, $confirm_pass)
-    {
-        if (empty($pass) || empty($confirm_pass))
-        {
-            $this->err_pass = 'Champ vide';
-            $this->err_confirm_pass = 'Champ vide';
-        }
-        else if (empty($confirm_pass))
-        {
-            $this->err_confirm_pass = 'Champ vide';
-        }
-        else if ($pass != $confirm_pass)
-        {
-            $this->err_confirm_pass = 'Mots de passe différents';
+            $errors['pseudo'] = 'Pseudo trop long';
         }
         else
         {
-            $this->password = md5($pass);
+            $pseudo = Secure::input($_POST['reg_pseudo']);
         }
-    }
-    
-    function checkMail($mail)
-    {
-        $query = $this->getData($mail, self::SEARCHDATA_EMAIL);
+        
+        
+        // Vérification du password
+        if (empty($_POST['password']))
+        {
+            $errors['password'] = EMPTY_FIELD;
+        }
+        
+        if (empty($_POST['confirm']))
+        {
+            $errors['confirm_password'] = EMPTY_FIELD;
+        }
+        else if ($_POST['password'] != $_POST['confirm'])
+        {
+            $errors['confirm_password'] = 'Mots de passe différents';
+        }
+        else
+        {
+            $password = Secure::input($_POST['password']);
+        }
+        
+        
+        // Verification de l'email
+        $query = getData($_POST['email'], 'email');
         $mail_free = ($query->fetchColumn()==0)?1:0;
         $query->CloseCursor();
         
-        if (empty($mail))
+        if (empty($_POST['email']))
         {
-            $this->err_email = 'Champ vide';
+            $errors['email'] = EMPTY_FIELD;
         }
         else if(!$mail_free)
         {
-            $this->err_email = 'Adresse email déjà utilisé';
+            $errors['email'] = 'Adresse email déjà utilisé';
         }
-        else if (!preg_match("#^[a-zA-Z0-9._-]+@[a-zA-Z0-9._-]{2,}\.[a-z]{2,4}$#", $mail) || empty($mail))
+        else if (!preg_match("#^[a-zA-Z0-9._-]+@[a-zA-Z0-9._-]{2,}\.[a-z]{2,4}$#", $_POST['email']) || empty($_POST['email']))
         {
-            $this->err_email = 'Format incorrecte';
+            $errors['email'] = 'Format incorrecte';
         }
         else
         {
-            $this->email = $mail;
+            $email = Secure::input($_POST['email']);
+        }
+        
+        
+        // Ajout de l'utilisateur
+        if (empty($errors['email']) && empty($errors['pseudo']) && empty($errors['password']) && empty($errors['confirm_password']))
+        {
+            add($pseudo, $password, $email);
         }
     }
      
