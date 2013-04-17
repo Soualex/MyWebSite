@@ -37,7 +37,7 @@ class NewsManager
    */
   public function count()
   {
-    return $this->db->query('SELECT COUNT(*) FROM news')->fetchColumn();
+    return $this->db->query('SELECT COUNT(*) FROM news')->fetch();
   }
    
   /**
