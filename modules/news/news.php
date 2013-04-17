@@ -7,14 +7,14 @@ include 'modeles/news.php';
 $manager = new NewsManager(PDO2::getInstance());
   
 //On récupère les news
-foreach($manager->getList(1, 5) as $cle => $element)
+foreach($manager->getList(0, 5) as $news)
 {
-    $news[$cle]['titre'] = $element['titre'];
-    $news[$cle]['contenu'] = nl2br($element['contenu']);
-    $news[$cle]['auteur'] = $element['auteur'];
-    $news[$cle]['dateAjout'] = $element['dateAjout'];
-    $news[$cle]['dateModif'] = $element['dateModif'];
-    $news[$cle]['id'] = $element['id'];
+    $titre = Secure::output($news->titre());
+    $contenu = Secure::output(nl2br($news->contenu()));
+    $auteur = Secure::output($news->auteur());
+    $dateAjout = Secure::output($news->dateAjout());
+    $dateModif = Secure::output($news->dateModif());
+    $id = Secure::output($news->id());
 }
   
 //On inclut la vue

@@ -1,22 +1,19 @@
 <?php
 
-foreach ($news as $n)
-{
-  echo '<h2><img src="style/image/emerald.png" class="icon" />', $n->titre(), '</h2>', "\n",
-       '<p>Par <em>', $n->auteur(), '</em>, ', $n->dateAjout(); 
+  echo '<div class="page"><h2><img src="style/image/emerald.png" class="icon" />'.$titre.'</h2>', "\n",
+       '<p>Par <em>'.$auteur.'</em>, '.$dateAjout; 
        
-  if ($session_rank > MODO)
+  if ($user_rank > MODO)
   {
-    echo ' <a href="index.php?page=admin&cat=manage-news&news-edit=', $n->id(), '" title="Modifier la News" ><img src="./style/image/edit.png" /></a> 
-           <a href="index.php?page=admin&cat=manage-news&news-delete=', $n->id(), '" title="Supprimer la News" ><img src="./style/image/delete.png" /></a></p>', "\n";
+    echo ' <a href="index.php?page=admin&cat=manage-news&news-edit='.$id.'" title="Modifier la News" ><img src="./style/image/edit.png" /></a> 
+           <a href="index.php?page=admin&cat=manage-news&news-delete='.$id.'" title="Supprimer la News" ><img src="./style/image/delete.png" /></a></p>', "\n";
   }
        
-  echo '<p>', nl2br($n->contenu()), '</p>', "\n";
+  echo '<p>'.$contenu.'</p>', "\n";
    
-  if ($n->dateAjout() != $n->dateModif())
+  if ($dateAjout != $dateModif)
   {
-    echo '<p style="text-align: right;"><small><em>Modifiée ', $n->dateModif(), '</em></small></p>';
+    echo '<p style="text-align: right;"><small><em>Modifiée '.$dateModif.'</em></small></p></div>';
   }
-}
-
+  
 ?>
