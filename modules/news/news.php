@@ -1,7 +1,7 @@
 <?php
   
 //On inclut le modèle
-include 'modeles/news.php';
+include MODELE_DIR.'/news.php';
 
 // On créé une nouvelle instance de news
 $manager = new NewsManager(PDO2::getInstance());
@@ -18,6 +18,6 @@ foreach($manager->getList(0, 5) as $news)
 }
   
 //On inclut la vue
-include 'modules/news/vues/news.php';
+include VUE_DIR.'/news.php';
 
 ?>
