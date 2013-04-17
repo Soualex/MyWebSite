@@ -8,7 +8,15 @@ else
 {
     //On inclut le modèle
     include MODELE_DIR.'register.php';
-
+    
+    if (isset($_POST['reg_pseudo']))
+    {
+        $pseudo = Security::input($_POST['reg_pseudo']);
+        $password = Security::input($_POST['password']);
+        $confirm_password = Security::input($_POST['confirm']);
+        $email = Security::input($_POST['email']);
+        $errors = array();
+    }
     
     function checkPseudo($pseudo)
     {
