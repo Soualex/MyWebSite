@@ -23,7 +23,7 @@
                 switch($user_rank)
                 {   
                     case 1;
-                    echo '<li><a href="index.php?page=register">Inscription</a></li>';
+                    echo '<li><a href="index.php?module=user&action=register">Inscription</a></li>';
                     break;
                     
                     case 2:
