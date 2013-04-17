@@ -21,7 +21,7 @@ define('MODO',3);
 define('ADMIN',4);
 
 // Chemins à utiliser pour accéder aux vues/modeles/librairies
-$module = empty($module) ? !empty($_GET['module']) ? $_GET['module'] : 'index' : $module;
+$module = empty($module) ? !empty($_GET['module']) ? $_GET['module'] : 'news' : $module;
 define('VUE_DIR',    'modules/'.$module.'/vues/');
 define('MODELE_DIR', 'modeles/');
 define('LIB_DIR',    'libs/');
