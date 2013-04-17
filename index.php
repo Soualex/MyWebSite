@@ -7,7 +7,7 @@ require 'global/init.php';
 ob_start();
  
 // Si un module est specifié, on regarde s'il existe
-if (!empty($_GET['module'])) 
+if (isset($_GET['module'])) 
 {
     $module = dirname(__FILE__).'/modules/'.$_GET['module'].'/';
      
