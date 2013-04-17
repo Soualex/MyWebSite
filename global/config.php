@@ -14,6 +14,12 @@ define('EMPTY_FIELD','Veulliez remplir ce champ');
 define('CHAR_FORBIDDEN','Ce champs contient des caractères interdits');
 define('LOW_LEVEL','Vous n\'avez pas un rang assez élevé pour acceder à cette');
 
+// Définistion des rangs :
+define('VISITEUR',1);
+define('MEMBRE',2);
+define('MODO',3);
+define('ADMIN',4);
+
 // Chemins à utiliser pour accéder aux vues/modeles/librairies
 $module = empty($module) ? !empty($_GET['module']) ? $_GET['module'] : 'index' : $module;
 define('VUE_DIR',    'modules/'.$module.'/vues/');
