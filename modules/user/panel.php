@@ -30,7 +30,7 @@ if ($user_id == 0)
         {
             $errors['password'] = EMPTY_FIELD;
         }              
-        else if ($data['password'] != md5($_POST['password']))
+        else if ($data['password'] != Secure::hash($_POST['password']))
         {
             $errors['password'] = 'Mot de passe incorrecte';
         }
