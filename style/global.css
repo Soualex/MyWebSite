@@ -9,7 +9,7 @@
 @font-face { font-family: 'Signika'; font-style: normal; font-weight: 400; src: local('Signika'), local('Signika-Regular'), url('police/signika-regular.woff') format('woff'); }
 @font-face { font-family: 'Signika'; font-style: normal; font-weight: 300; src: local('Signika Light'), local('Signika-Light'), url('police/signika-light.woff') format('woff'); }
 @font-face { font-family: 'Bebas Neue'; font-style: normal; font-weight: normal; src: local('Bebas Neue'), local('BebasNeue'), url('police/bebasneue.woff') format('woff'); }
-
+ 
 /* Core */
 html{ background: url("image/background.jpg") fixed no-repeat top; font-family: "Trebuchet MS", "Arial Black", Arial, Verdana, sans-serif; }
 #core{ background: url("image/body.png") top; width: 925px; position: left; vertical-align: top; margin-left: 525px; border-radius: 10px; }
