@@ -46,7 +46,7 @@
             <?php echo $contenu; ?>
             
             <div class="right">
-                <?php include_once('include/login.php'); ?>
+                <?php include('modules/user/panel.php'); ?>
                 
                 <a href="mailto:soualexdueptsix@gmail.com" title="Envoyer un E-Mail à l'administrateur"><img src="style/image/mail.png"/></a>
                 <a href="download/minecraft.exe" title="Télécharger Minecraft"><img src="style/image/dlminecraft.png"/></a>

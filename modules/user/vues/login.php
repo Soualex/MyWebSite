@@ -4,14 +4,14 @@
     <fieldset class="login-pseudo">
         <label for="pseudo"><h1>Identifiant</h1></label>
         <input name="pseudo" label="false" type="text" id="pseudo", placeholder="Minecraft" required />
-        <br />'.$err_pseudo.'
+        <?php if (isset($errors['pseudo'])) echo '<img src="style/image/alert.png" class="icon" title="'.$errors['pseudo'].'" />'; ?><br />
         <div class="clear"></div>
     </fieldset>
                             
     <fieldset>
         <label for="password"><h1>Mot de passe</h1></label>
         <input type="password" name="password" id="password" label="false" placeholder="*****" required />
-        <br />'.$err_pass.'
+        <?php if (isset($errors['password'])) echo '<img src="style/image/alert.png" class="icon" title="'.$errors['password'].'" />'; ?><br />
         <div class="clear"></div>
     </fieldset>
                             
