@@ -37,10 +37,7 @@ class NewsManager
    */
   public function count()
   {
-	$query = $this->db->query('SELECT COUNT(*) FROM news');
-	$list = $query->fetchColumn();
-	
-    return $list;
+	return $this->db->query('SELECT COUNT(*) AS total FROM news')->fetch();
   }
    
   /**
@@ -56,7 +53,7 @@ class NewsManager
    */
   public function getList($debut = -1, $limite = -1)
   {
-    $sql = 'SELECT id, auteur, titre, contenu, DATE_FORMAT (dateAjout, \'le %d/%m/%Y à %Hh%i\') AS dateAjout, DATE_FORMAT (dateModif, \'le %d/%m/%Y à %Hh%i\') AS dateModif FROM news ORDER BY id DESC';
+    $sql = 'SELECT id, auteur, titre, contenu, DATE_FORMAT (dateAjout, \'le %d/%m/%Y à %Hh%i\') AS dateAjout, DATE_FORMAT (dateModif, \'le %d/%m/%Y à %Hh%i\') AS dateModif FROM news ORDER BY dateAjout DESC';
      
     // On vérifie l'intégrité des paramètres fournis.
     if ($debut != -1 || $limite != -1)
