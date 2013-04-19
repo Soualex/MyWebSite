@@ -1,6 +1,6 @@
-/* ----------------------------------- */
+ï»¿/* ----------------------------------- */
 /* Code CSS du site Les Finals History */
-/*       Code créé par Soualex         */
+/*       Code crÃ©Ã© par Soualex         */
 /* ----------------------------------- */
 
 /* Font-Face */
@@ -12,7 +12,7 @@
  
 /* Core */
 html{ background: url("image/background.jpg") fixed no-repeat top; font-family: "Trebuchet MS", "Arial Black", Arial, Verdana, sans-serif; }
-#core{ background: url("image/body.png") top; width: 925px; position: left; vertical-align: top; margin-left: 525px; border-radius: 10px; }
+#core{ background: url("image/body.png"); width: 925px; position: relative; margin: auto; border-radius: 10px; }
 
 /* Navigation */
 #nav { height: 147px; background: url('image/navbar-bg.png'); box-shadow: 0 -4px 5px #709EBE; text-align: center; }
