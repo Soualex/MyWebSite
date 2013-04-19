@@ -30,7 +30,7 @@
                     break;
                     
                     case 2:
-                    echo '<li><a href="index.php?page=support">Support</a></li>';
+                    echo '<li><a href="index.php?module=support">Support</a></li>';
                     break;
                     
                     case 3:
