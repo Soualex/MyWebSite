@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 
 // last-edited on may, 29th 2009
 

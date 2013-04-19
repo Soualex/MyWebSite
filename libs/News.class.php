@@ -1,6 +1,6 @@
-<?php
+ï»¿<?php
 /**
- * Classe représentant une news, créée à l'occasion d'un TP du tutoriel « La programmation orientée objet en PHP » disponible sur http://www.siteduzero.com/
+ * Classe reprÃ©sentant une news, crÃ©Ã©e Ã  l'occasion d'un TP du tutoriel Â« La programmation orientÃ©e objet en PHP Â» disponible sur http://www.siteduzero.com/
  * @author Victor T.
  * @version 2.0
  */
@@ -15,7 +15,7 @@ class News
             $dateModif;
    
   /**
-   * Constantes relatives aux erreurs possibles rencontrées lors de l'exécution de la méthode.
+   * Constantes relatives aux erreurs possibles rencontrÃ©es lors de l'exÃ©cution de la mÃ©thode.
    */
   const AUTEUR_INVALIDE = 1;
   const TITRE_INVALIDE = 2;
@@ -23,21 +23,21 @@ class News
    
    
   /**
-   * Constructeur de la classe qui assigne les données spécifiées en paramètre aux attributs correspondants.
-   * @param $valeurs array Les valeurs à assigner
+   * Constructeur de la classe qui assigne les donnÃ©es spÃ©cifiÃ©es en paramÃ¨tre aux attributs correspondants.
+   * @param $valeurs array Les valeurs Ã  assigner
    * @return void
    */
   public function __construct($valeurs = array())
   {
-    if (!empty($valeurs)) // Si on a spécifié des valeurs, alors on hydrate l'objet.
+    if (!empty($valeurs)) // Si on a spÃ©cifiÃ© des valeurs, alors on hydrate l'objet.
     {
       $this->hydrate($valeurs);
     }
   }
    
   /**
-   * Méthode assignant les valeurs spécifiées aux attributs correspondant.
-   * @param $donnees array Les données à assigner
+   * MÃ©thode assignant les valeurs spÃ©cifiÃ©es aux attributs correspondant.
+   * @param $donnees array Les donnÃ©es Ã  assigner
    * @return void
    */
   public function hydrate($donnees)
@@ -54,7 +54,7 @@ class News
   }
    
   /**
-   * Méthode permettant de savoir si la news est nouvelle.
+   * MÃ©thode permettant de savoir si la news est nouvelle.
    * @return bool
    */
   public function isNew()
@@ -63,7 +63,7 @@ class News
   }
    
   /**
-   * Méthode permettant de savoir si la news est valide.
+   * MÃ©thode permettant de savoir si la news est valide.
    * @return bool
    */
   public function isValid()
@@ -117,7 +117,7 @@ class News
    
   public function setDateAjout($dateAjout)
   {
-    if (is_string($dateAjout) && preg_match('`le [0-9]{2}/[0-9]{2}/[0-9]{4} à [0-9]{2}h[0-9]{2}`', $dateAjout))
+    if (is_string($dateAjout) && preg_match('`le [0-9]{2}/[0-9]{2}/[0-9]{4} Ã  [0-9]{2}h[0-9]{2}`', $dateAjout))
     {
       $this->dateAjout = $dateAjout;
     }
@@ -125,7 +125,7 @@ class News
    
   public function setDateModif($dateModif)
   {
-    if (is_string($dateModif) && preg_match('`le [0-9]{2}/[0-9]{2}/[0-9]{4} à [0-9]{2}h[0-9]{2}`', $dateModif))
+    if (is_string($dateModif) && preg_match('`le [0-9]{2}/[0-9]{2}/[0-9]{4} Ã  [0-9]{2}h[0-9]{2}`', $dateModif))
     {
       $this->dateModif = $dateModif;
     }

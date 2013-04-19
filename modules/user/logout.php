@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 
 if ($user_id  == 0) 
 {

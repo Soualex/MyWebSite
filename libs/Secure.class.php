@@ -1,4 +1,4 @@
-<?php
+ï»¿<?php
 
 // Constantes pour le hashage
 define("PRE","1zA$");//Sel
@@ -8,9 +8,9 @@ define("POST","%yU1");
 class Secure
 {
       /**
-       * Securise les données entrantes dans la DB
-       * @param Une chaîne de caractères
-       * @return Une chaîne de caratère sécurié
+       * Securise les donnÃ©es entrantes dans la DB
+       * @param Une chaÃ®ne de caractÃ¨res
+       * @return Une chaÃ®ne de caratÃ¨re sÃ©curiÃ©
        */
        
     public static function input($string)
@@ -32,9 +32,9 @@ class Secure
         
         
       /**
-       * Securise les données sortantes de la DB
-       * @param Une chaîne de caractères
-       * @return Une chaîne de caratère sécurié
+       * Securise les donnÃ©es sortantes de la DB
+       * @param Une chaÃ®ne de caractÃ¨res
+       * @return Une chaÃ®ne de caratÃ¨re sÃ©curiÃ©
        */
     public static function output($string)
     {
@@ -45,7 +45,7 @@ class Secure
       /**
        * Hash un mot de passe
        * @param Mot de passe en clair
-       * @return Mot de passe hashé
+       * @return Mot de passe hashÃ©
        */
        
     public static function hash($password)

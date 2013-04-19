@@ -1,11 +1,11 @@
-<?php
+ï»¿<?php
 
 class PDO2 extends PDO 
 {
  
     private static $_instance;
  
-    /* Constructeur : héritage public obligatoire par héritage de PDO */
+    /* Constructeur : hÃ©ritage public obligatoire par hÃ©ritage de PDO */
     public function __construct( ) 
     {
      
