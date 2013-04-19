@@ -1,5 +1,5 @@
-<form method="post" action="index.php?module=user&action=register" enctype="multipart/form-data" class="page" >
-    <p><strong><a href="./index.php"><img src="style/image/home.png" class="icon" /></a>: Inscription</strong></p>
+﻿<form method="post" action="index.php?module=user&action=register" enctype="multipart/form-data" >
+    <p><strong><a href="index.php"><img src="style/image/home.png" class="icon" /></a>: Inscription</strong></p>
     <h2><img src="style/image/emerald.png" class="icon" />Inscription</h2>
             
     <fieldset><legend>Identifiants</legend>

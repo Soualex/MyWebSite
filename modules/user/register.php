@@ -1,4 +1,4 @@
-<?php
+Ôªø<?php
 
 if ($user_id != 0)
 {
@@ -6,16 +6,16 @@ if ($user_id != 0)
 }
 else
 {
-    //On inclut le modËle
+    //On inclut le mod√®le
     include MODELE_DIR.'register.php';
     
     if (isset($_POST['reg_pseudo']))
     {
-        // DÈfinition des variables
+        // D√©finition des variables
         $errors[] = NULL;
         
         
-        // VÈrification du pseudo
+        // V√©rification du pseudo
         $query = getData($_POST['reg_pseudo'], 'pseudo');
         $pseudo_free = ($query->fetchColumn()==0)?1:0;
         $query->CloseCursor();
@@ -26,7 +26,7 @@ else
         }
         else if(!$pseudo_free)
         {
-            $errors['pseudo'] = 'Pseudo dÈj‡ utilisÈ';
+            $errors['pseudo'] = 'Pseudo d√©j√† utilis√©';
         }  
         else if (strlen($_POST['reg_pseudo']) < 3)
         {
@@ -42,7 +42,7 @@ else
         }
         
         
-        // VÈrification du password
+        // V√©rification du password
         if (empty($_POST['password']))
         {
             $errors['password'] = EMPTY_FIELD;
@@ -54,7 +54,7 @@ else
         }
         else if ($_POST['password'] != $_POST['confirm'])
         {
-            $errors['confirm_password'] = 'Mots de passe diffÈrents';
+            $errors['confirm_password'] = 'Mots de passe diff√©rents';
         }
         else
         {
@@ -73,7 +73,7 @@ else
         }
         else if(!$mail_free)
         {
-            $errors['email'] = 'Adresse email dÈj‡ utilisÈ';
+            $errors['email'] = 'Adresse email d√©j√† utilis√©';
         }
         else if (!preg_match("#^[a-zA-Z0-9._-]+@[a-zA-Z0-9._-]{2,}\.[a-z]{2,4}$#", $_POST['email']) || empty($_POST['email']))
         {
@@ -91,7 +91,7 @@ else
             add($pseudo, $password, $email);
         }
     }
-     
+    
      
     //On inclut la vue
     include VUE_DIR.'register.php';

@@ -1,37 +1,37 @@
-<?php
+ï»¿<?php
 
-//On inclut le modèle
+//On inclut le modÃ¨le
 include MODELE_DIR.'/news.php';
 
-// On créé une nouvelle instance de news
+// On crÃ©Ã© une nouvelle instance de news
 $manager = new NewsManager(PDO2::getInstance());
 
 $messagesParPage = 5; //Nous allons afficher 5 messages par page.
 
-//Une connexion SQL doit être ouverte avant cette ligne...
+//Une connexion SQL doit Ãªtre ouverte avant cette ligne...
 $donnees_total = $manager->count();
-$total = $donnees_total['donnees_total']; //On récupère le total pour le placer dans la variable $total.
+// $total = $donnees_total['total']; //On rÃ©cupÃ¨re le total pour le placer dans la variable $total.
 
 //Nous allons maintenant compter le nombre de pages.
-$nombreDePages = ceil($total / $messagesParPage);
+$nombreDePages = ceil($donnees_total / $messagesParPage);
 
 if(isset($_GET['page'])) // Si la variable $_GET['page'] existe...
 {
      $pageActuelle = intval($_GET['page']);
      
-     if($pageActuelle > $nombreDePages) // Si la valeur de $pageActuelle (le numéro de la page) est plus grande que $nombreDePages...
+     if($pageActuelle > $nombreDePages) // Si la valeur de $pageActuelle (le numÃ©ro de la page) est plus grande que $nombreDePages...
      {
           $pageActuelle = $nombreDePages;
      }
 }
 else // Sinon
 {
-     $pageActuelle = 1; // La page actuelle est la n°1    
+     $pageActuelle = 1; // La page actuelle est la nÂ°1    
 }
 
-$premiereEntree = ($pageActuelle - 1) * $messagesParPage; // On calcul la première entrée à lire
+$premiereEntree = ($pageActuelle - 1) * $messagesParPage; // On calcul la premiÃ¨re entrÃ©e Ã  lire
 
-//On récupère les news
+//On rÃ©cupÃ¨re les news
 foreach($manager->getList($premiereEntree, $messagesParPage) as $news)
 {
     $titre = Secure::output($news->titre());

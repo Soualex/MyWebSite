@@ -1,13 +1,13 @@
-<?php
+ï»¿<?php
 
 if ($user_id == 0)
 {
-    //On inclut le modèle
+    //On inclut le modÃ¨le
     include MODELE_DIR.'/login.php';
     
     if (isset($_POST['pseudo']))
     {
-        // Définition des variables
+        // DÃ©finition des variables
         $errors[] = NULL;
         
         $query = getData($_POST['pseudo']);
@@ -41,7 +41,7 @@ if ($user_id == 0)
         
         $query->CloseCursor();
         
-        // Définition des variables de sessions et mise à jour de compte
+        // DÃ©finition des variables de sessions et mise Ã  jour de compte
         if (empty($errors['pseudo']) && empty($errors['password']))
         {
             $_SESSION['name'] = $data['pseudo'];

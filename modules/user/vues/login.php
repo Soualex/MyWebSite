@@ -1,4 +1,4 @@
-<form method="post" action="index.php" class="login">
+﻿<form method="post" action="index.php" class="login">
     <h2 class="login-name"><img src="style/image/member.png" class="icon" />Connexion</h2>
 
     <fieldset class="login-pseudo">
@@ -18,6 +18,6 @@
     <input type="submit" value="Connexion" class="btn btn-green"/>
                             
     <div class="login-footer">
-        <a id="forgetpassword" href="index.php?page=forgetPassword">Mot de passe oubli� ?</a>
+        <a id="forgetpassword" href="index.php?page=forgetPassword">Mot de passe oublié ?</a>
     </div>
 </form>

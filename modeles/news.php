@@ -1,15 +1,15 @@
-<?php
+ï»¿<?php
 
 class NewsManager
 {
   /**
-   * Attribut contenant l'instance représentant la BDD.
+   * Attribut contenant l'instance reprÃ©sentant la BDD.
    * @type PDO
    */
   protected $db;
    
   /**
-   * Constructeur étant chargé d'enregistrer l'instance de PDO dans l'attribut $db.
+   * Constructeur Ã©tant chargÃ© d'enregistrer l'instance de PDO dans l'attribut $db.
    * @param $db PDO Le DAO
    * @return void
    */
@@ -37,7 +37,10 @@ class NewsManager
    */
   public function count()
   {
-    return $this->db->query('SELECT COUNT(*) FROM news')->fetch();
+	$query = $this->db->query('SELECT COUNT(*) FROM news');
+	$list = $query->fetchColumn();
+	
+    return $list;
   }
    
   /**
@@ -53,9 +56,9 @@ class NewsManager
    */
   public function getList($debut = -1, $limite = -1)
   {
-    $sql = 'SELECT id, auteur, titre, contenu, DATE_FORMAT (dateAjout, \'le %d/%m/%Y à %Hh%i\') AS dateAjout, DATE_FORMAT (dateModif, \'le %d/%m/%Y à %Hh%i\') AS dateModif FROM news ORDER BY id DESC';
+    $sql = 'SELECT id, auteur, titre, contenu, DATE_FORMAT (dateAjout, \'le %d/%m/%Y Ã  %Hh%i\') AS dateAjout, DATE_FORMAT (dateModif, \'le %d/%m/%Y Ã  %Hh%i\') AS dateModif FROM news ORDER BY id DESC';
      
-    // On vérifie l'intégrité des paramètres fournis.
+    // On vÃ©rifie l'intÃ©gritÃ© des paramÃ¨tres fournis.
     if ($debut != -1 || $limite != -1)
     {
       $sql .= ' LIMIT '.(int) $limite.' OFFSET '.(int) $debut;
@@ -76,7 +79,7 @@ class NewsManager
    */
   public function getUnique($id)
   {
-    $requete = $this->db->prepare('SELECT id, auteur, titre, contenu, DATE_FORMAT (dateAjout, \'le %d/%m/%Y à %Hh%i\') AS dateAjout, DATE_FORMAT (dateModif, \'le %d/%m/%Y à %Hh%i\') AS dateModif FROM news WHERE id = :id');
+    $requete = $this->db->prepare('SELECT id, auteur, titre, contenu, DATE_FORMAT (dateAjout, \'le %d/%m/%Y Ã  %Hh%i\') AS dateAjout, DATE_FORMAT (dateModif, \'le %d/%m/%Y Ã  %Hh%i\') AS dateModif FROM news WHERE id = :id');
     $requete->bindValue(':id', (int) $id, PDO::PARAM_INT);
     $requete->execute();
      

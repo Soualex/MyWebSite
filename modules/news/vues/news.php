@@ -1,6 +1,6 @@
-<?php
+﻿<?php
 
-  echo '<div class="page"><h2><img src="style/image/emerald.png" class="icon" />'.$titre.'</h2>', "\n",
+  echo '<h2><img src="style/image/emerald.png" class="icon" />'.$titre.'</h2>', "\n",
        '<p>Par <em>'.$auteur.'</em>, '.$dateAjout; 
        
   if ($user_rank > MODO)
@@ -13,7 +13,7 @@
    
   if ($dateAjout != $dateModif)
   {
-    echo '<p style="text-align: right;"><small><em>Modifi�e '.$dateModif.'</em></small></p></div>';
+    echo '<p style="text-align: right;"><small><em>Modifiée '.$dateModif.'</em></small></p>';
   }
   
 ?>

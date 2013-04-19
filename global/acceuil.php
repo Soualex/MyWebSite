@@ -1,12 +1,15 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+ï»¿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr" >
     <head>
         <title>Les Finals History</title>
-        <meta name="title" content="Les Finals History Server" />
-        <meta name="description" content="Serveur Minecraft en 1.4.7 des Finals History. Factions disponibles et pleins d'autres joyeusetées !" />
+        <meta name="title" content="Les Finals History" />
+        <meta name="description" content="Serveur Minecraft en 1.4.7 des Finals History. Factions disponibles et pleins d'autres joyeusetÃ©es !" />
         <meta name="keywords" content="serveur, minecraft, craftbukkit, bukkit, craft, jeu, game, Finals History" />
-        <meta http-equiv="content-type" content="text/html; charset=ISO-8859-15" />
+        <meta http-equiv="content-type" content="text/html" charset="utf-8" />
         <link rel="stylesheet" href="style/global.css" />
+        <!--[if lt IE 9]>
+        <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
     </head>
     
     <body>
@@ -43,14 +46,14 @@
                 
             </ul></div>
             
-            <?php echo $contenu; ?>
+            <div class="page"><?php echo $contenu; ?></div>
             
             <div class="right">
                 <?php include('modules/user/panel.php'); ?>
                 
-                <a href="mailto:soualexdueptsix@gmail.com" title="Envoyer un E-Mail à l'administrateur"><img src="style/image/mail.png"/></a>
-                <a href="download/minecraft.exe" title="Télécharger Minecraft"><img src="style/image/dlminecraft.png"/></a>
-                <a href="index.php?page=chat" title="Accéder au Tchat"><img src="style/image/chat.png"/></a>
+                <a href="mailto:soualexdueptsix@gmail.com" title="Envoyer un E-Mail Ã  l'administrateur"><img src="style/image/mail.png"/></a>
+                <a href="download/minecraft.exe" title="TÃ©lÃ©charger Minecraft"><img src="style/image/dlminecraft.png"/></a>
+                <a href="index.php?page=chat" title="AccÃ©der au Tchat"><img src="style/image/chat.png"/></a>
                 <a href="#core" title="Facebook - Les Finals History" target="_blank"><img src="style/image/facebook.png"/></a>
                 <a href="#core" title="Twitter - Les Finals History" target="_blank"><img src="style/image/twitter.png"/></a><br />
                 <a href="#core" title="YouTube - Les Finals History" target="_blank"><img src="style/image/youtube.png"/></a>
@@ -58,7 +61,7 @@
                 
             <div class="footer">
                 <p>Copyright : Les Finals Hisory 2012<br />
-                Tous droits réservés</p>
+                Tous droits rÃ©servÃ©s</p>
             </div>
         </div>  
     </body>
