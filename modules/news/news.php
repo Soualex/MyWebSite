@@ -46,6 +46,6 @@ foreach($manager->getList($premiereEntree, $messagesParPage) as $news)
 }
 
 // Vue de la page des news
-include VUE_DIR.'/bodyNews.php';
+include VUE_DIR.'/pagination.php';
 
 ?>
